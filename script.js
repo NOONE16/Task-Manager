@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const storedTasks = localStorage.getItem('tasks');
         state.tasks = storedTasks ? JSON.parse(storedTasks) : [];
         const storedTeammates = localStorage.getItem('teammates');
-        state.teammates = storedTeammates ? JSON.parse(storedTeammates) : ['Sanjay', 'Subhasmit', 'Tanmay', 'Vishal', 'Siddhesh', 'Saurabh', 'Aninda', 'Naveen', 'Raktika']; // Default if none
+        state.teammates = storedTeammates ? JSON.parse(storedTeammates) : ['Vishal', 'Siddhesh', 'Saurabh']; // Default if none
         const storedMeetings = localStorage.getItem('meetings');
         state.meetings = storedMeetings ? JSON.parse(storedMeetings) : [];
     };
@@ -430,3 +430,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run the app
     initialize();
 });
+
