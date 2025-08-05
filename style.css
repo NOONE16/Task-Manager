@@ -1,0 +1,455 @@
+/* --- CSS Variables for easy theming --- */
+:root {
+    --primary-color: #4a90e2;
+    --primary-hover-color: #357abd;
+    --background-color: #f7f8fc;
+    --container-bg-color: #ffffff;
+    --text-color: #333;
+    --subtle-text-color: #777;
+    --border-color: #e0e6ed;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    --status-progress-color: #f5a623; /* Orange */
+    --status-complete-color: #7ed321; /* Green */
+    --status-reject-color: #d0021b;   /* Red */
+
+    --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    --border-radius: 8px;
+    --container-padding: 40px;
+    --transition-speed: 0.2s;
+}
+
+/* --- General & Body Styles --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    padding: var(--container-padding);
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header .header-content {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+/* --- Tab Navigation --- */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tab-btn {
+    background-color: transparent;
+    color: var(--subtle-text-color);
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+.tab-btn:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-hover-color);
+    transform: none;
+    box-shadow: none;
+}
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* --- Controls Bar --- */
+.controls-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+/* --- View Switching --- */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-group label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--subtle-text-color);
+    font-size: 0.9em;
+}
+
+.date-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* --- Common Form Element Styles --- */
+select, input[type="date"], input[type="text"], button {
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    transition: all var(--transition-speed) ease;
+    background-color: #fff;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.date-nav button {
+    padding: 12px;
+    line-height: 1;
+}
+
+#prev-day-btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#next-day-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#date-picker {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    flex-grow: 1;
+}
+
+#manage-teammates-btn {
+    background-color: #7f8c8d;
+}
+#manage-teammates-btn:hover {
+    background-color: #6c7a7b;
+    box-shadow: 0 4px 10px rgba(127, 140, 141, 0.2);
+}
+
+/* --- Task List Section --- */
+.task-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#meeting-list-header {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 12px;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+/* Status Indicator */
+.task-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+}
+
+.task-item.status-in-progress::before { background-color: var(--status-progress-color); }
+.task-item.status-complete::before { background-color: var(--status-complete-color); }
+.task-item.status-reject::before { background-color: var(--status-reject-color); }
+
+.task-item.status-complete .description {
+    text-decoration: line-through;
+    color: var(--subtle-text-color);
+}
+
+.task-item .description {
+    flex-grow: 1;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.task-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.task-actions button {
+    background: none;
+    padding: 5px;
+    font-size: 18px;
+    color: #aaa;
+    transition: color var(--transition-speed);
+}
+.task-actions button:hover {
+    transform: none;
+    box-shadow: none;
+    color: var(--text-color);
+}
+.task-actions .delete-btn:hover { color: var(--status-reject-color); }
+
+.no-tasks-message {
+    text-align: center;
+    padding: 40px;
+    color: var(--subtle-text-color);
+    background-color: #fafafa;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+/* --- Meeting List Section --- */
+#meeting-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meeting-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+}
+
+.meeting-item-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    transition: background-color var(--transition-speed);
+}
+
+.meeting-item-header:hover {
+    background-color: #f9f9f9;
+}
+
+.meeting-item-header .arrow {
+    transition: transform var(--transition-speed) ease;
+}
+
+.meeting-item.open .meeting-item-header .arrow {
+    transform: rotate(90deg);
+}
+
+.meeting-summary {
+    display: none;
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--subtle-text-color);
+    white-space: pre-wrap; /* Respects newlines in the summary */
+    line-height: 1.6;
+}
+
+.meeting-item.open .meeting-summary {
+    display: block;
+}
+
+/* --- Add Task Section --- */
+.add-task-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.add-task-form {
+    display: flex;
+    gap: 10px;
+}
+
+#new-task-input {
+    flex-grow: 1;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px 40px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(0.95);
+    transition: transform var(--transition-speed) ease;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.modal-form label {
+    font-weight: 600;
+    color: var(--subtle-text-color);
+    font-size: 0.9em;
+}
+.modal-form textarea {
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    font-family: var(--font-family);
+    resize: vertical;
+}
+.modal-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+    transition: color var(--transition-speed);
+}
+.close-modal-btn:hover { color: var(--text-color); }
+
+.add-teammate-form { display: flex; gap: 10px; margin-bottom: 20px; }
+#new-teammate-input { flex-grow: 1; }
+
+#teammate-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#teammate-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+#teammate-list li:last-child {
+    border-bottom: none;
+}
+
+#teammate-list button {
+    background-color: var(--status-reject-color);
+    font-size: 14px;
+    padding: 5px 10px;
+}
+#teammate-list button:hover {
+    background-color: #a80115;
+    box-shadow: 0 2px 5px rgba(208, 2, 27, 0.2);
+}

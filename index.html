@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Team Task Manager</h1>
+                <nav class="tabs">
+                    <button id="tab-tasks" class="tab-btn active">Tasks</button>
+                    <button id="tab-meetings" class="tab-btn">Meeting Summaries</button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Tasks View -->
+            <div id="tasks-view" class="view active">
+                <div class="controls-bar">
+                    <div class="control-group">
+                    <label for="teammate-select">Teammate:</label>
+                    <select id="teammate-select"></select>
+                </div>
+                <div class="control-group">
+                    <label for="date-picker-tasks">Date:</label>
+                    <div class="date-nav">
+                        <button class="prev-day-btn" title="Previous Day">&#x2190;</button>
+                        <input type="date" id="date-picker-tasks" class="date-picker">
+                        <button class="next-day-btn" title="Next Day">&#x2192;</button>
+                    </div>
+                </div>
+                    <div class="control-group">
+                        <button id="manage-teammates-btn">Manage Teammates</button>
+                    </div>
+                </div>
+
+                <div class="task-section">
+                    <h2 id="task-list-header">Today's Tasks</h2>
+                    <ul id="task-list">
+                        <!-- Tasks will be dynamically inserted here -->
+                    </ul>
+                </div>
+
+                <div class="add-task-section">
+                    <h3>Add New Task</h3>
+                    <div class="add-task-form">
+                        <input type="text" id="new-task-input" placeholder="Enter new task description...">
+                        <button id="add-task-btn">Add Task</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meetings View -->
+            <div id="meetings-view" class="view">
+                <div class="controls-bar">
+                    <div class="control-group">
+                        <h2 id="meeting-list-header">Meeting Summaries</h2>
+                    </div>
+                    <div class="control-group">
+                        <label for="date-picker-meetings">Date:</label>
+                        <div class="date-nav">
+                            <button class="prev-day-btn" title="Previous Day">&#x2190;</button>
+                            <input type="date" id="date-picker-meetings" class="date-picker">
+                            <button class="next-day-btn" title="Next Day">&#x2192;</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <button id="add-meeting-btn">Add New Meeting</button>
+                    </div>
+                </div>
+                <ul id="meeting-list">
+                    <!-- Meeting summaries will be dynamically inserted here -->
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- Teammate Management Modal -->
+    <div id="teammate-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-modal-btn">&times;</span>
+            <h2>Manage Teammates</h2>
+            <div class="add-teammate-form">
+                <input type="text" id="new-teammate-input" placeholder="Enter new teammate name...">
+                <button id="add-teammate-btn">Add Teammate</button>
+            </div>
+            <ul id="teammate-list">
+                <!-- Teammate list for management will be populated here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add/Edit Meeting Modal -->
+    <div id="meeting-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="close-meeting-modal-btn" class="close-modal-btn">&times;</span>
+            <h2 id="meeting-modal-title">Add Meeting Summary</h2>
+            <div class="modal-form">
+                <label for="meeting-title-input">Meeting Title</label>
+                <input type="text" id="meeting-title-input" placeholder="e.g., Project Sync-up">
+                <label for="meeting-summary-input">Summary</label>
+                <textarea id="meeting-summary-input" rows="10" placeholder="Enter key decisions, action items, and notes..."></textarea>
+                <button id="save-meeting-btn">Save Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
